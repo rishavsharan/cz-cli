@@ -26,7 +26,13 @@ jobs:
   - script: git config --global user.name "Example Git User"
   - script: npm install
   - script: npm run build
-  - script: npm test
+  - script: npm test:ci
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFiles: '**/TEST-RESULTS.xml'
+      testRunTitle: 'Test results for Mocha'
+
   - task: PublishBuildArtifacts@1
     displayName: Publish packages
     condition: and(succeeded(), eq(variables['system.pullrequest.isfork'], false))

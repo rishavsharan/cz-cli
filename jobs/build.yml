@@ -26,7 +26,7 @@ jobs:
   - script: git config --global user.name "Example Git User"
   - script: npm install
   - script: npm run build
-  - script: npm test:ci
+  - script: npm run test:ci
 
   - task: PublishTestResults@2
     inputs:

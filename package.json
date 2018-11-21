@@ -15,7 +15,7 @@
     "start": "npm run test:watch",
     "lint": "eslint --ignore-path .gitignore .",
     "test": "nyc --require @babel/register _mocha -- test/tests/index.js",
-    "test:ci": "npm run test --reporter mocha-junit-reporter --reporter-options mochaFile=./TEST-RESULTS.xml",
+    "test:ci": "nyc --require @babel/register _mocha -- test/tests/index.js --reporter mocha-junit-reporter --reporter-options mochaFile=./TEST-RESULTS.xml",
     "test:watch": "nodemon -q --ignore test/.tmp/ --ignore test/artifacts/ --ignore coverage/ --exec \"npm run test\" --"
   },
   "config": {
